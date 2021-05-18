@@ -28,7 +28,7 @@ def sepologparser_inet():
         os.system('cls' if os.name == 'nt' else 'clear') 
 
 def sepologparser_local():
-        with open('log.txt') as input_file, open('allows.te', 'w') as output_file:
+        with open('log.txt', encoding ='ISO-8859-1') as input_file, open('allows.te', 'w') as output_file:
             text = input_file.read()
             pat = r"""avc:\s*denied\s*({\s*[^}]*\s*})\s+.*?scontext=u:r:([^:]*):s\d+.*?tcontext=.*?:(\w{2,}):s0.*?\s+tclass=([^\s:]*)\s+"""
             for what, scnt, tcnt, tc in re.findall(pat, text):
